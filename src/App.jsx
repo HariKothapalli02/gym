@@ -1511,10 +1511,11 @@ export default function App() {
             position: "absolute",
             inset: 0,
             backgroundImage: `
-              radial-gradient(circle at 70% 30%, ${colors.ember}0b, transparent 50%),
-              repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 30px),
-              repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 30px)
+              radial-gradient(circle at 75% 50%, rgba(255, 69, 0, 0.12) 0%, transparent 60%),
+              linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px)
             `,
+            backgroundSize: "100% 100%, 40px 40px, 40px 40px",
             pointerEvents: "none",
             zIndex: 0,
           }}
@@ -1522,18 +1523,18 @@ export default function App() {
 
         {/* Floating Ember Particles */}
         <div ref={heroContainerRef} style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 1 }}>
-          {[...Array(25)].map((_, i) => (
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
               className="ember-particle"
               style={{
                 position: "absolute",
-                width: `${gsap.utils.random(4, 8)}px`,
-                height: `${gsap.utils.random(4, 8)}px`,
+                width: `${gsap.utils.random(3, 6)}px`,
+                height: `${gsap.utils.random(3, 6)}px`,
                 backgroundColor: colors.ember,
                 borderRadius: "50%",
                 pointerEvents: "none",
-                filter: `blur(1px) drop-shadow(0 0 5px ${colors.ember})`,
+                filter: `blur(1px) drop-shadow(0 0 8px ${colors.ember})`,
               }}
             />
           ))}
@@ -1546,8 +1547,8 @@ export default function App() {
             margin: "0 auto",
             width: "100%",
             display: "grid",
-            gridTemplateColumns: isMobile || isTablet ? "1fr" : "1.5fr 1fr",
-            gap: "48px",
+            gridTemplateColumns: isMobile || isTablet ? "1fr" : "1.4fr 1.1fr",
+            gap: "64px",
             alignItems: "center",
             position: "relative",
             zIndex: 2,
@@ -1590,11 +1591,13 @@ export default function App() {
                 style={{
                   fontFamily: fonts.display,
                   fontSize: "clamp(56px, 9vw, 110px)",
-                  color: colors.ember,
+                  background: `linear-gradient(90deg, ${colors.ember} 0%, ${colors.emberSoft} 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                   lineHeight: 0.9,
                   letterSpacing: "4px",
                   textTransform: "uppercase",
-                  textShadow: `0 0 20px rgba(255, 69, 0, 0.4)`,
+                  filter: `drop-shadow(0 0 10px rgba(255, 69, 0, 0.35))`,
                   willChange: "transform, opacity",
                 }}
               >
@@ -1615,34 +1618,42 @@ export default function App() {
               Premium Training • Expert Coaching • Real Results
             </p>
 
-            {/* Stats Row */}
+            {/* Stats Cards Row */}
             <div
               className="hero-stat-item"
               style={{
-                display: "flex",
-                gap: "24px",
-                justifyContent: isMobile ? "center" : "flex-start",
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+                gap: "16px",
                 marginTop: "16px",
-                borderTop: "1px solid rgba(255,255,255,0.06)",
-                borderBottom: "1px solid rgba(255,255,255,0.06)",
-                padding: "20px 0",
                 width: "100%",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", minWidth: "90px" }}>
-                <span style={{ fontFamily: fonts.accent, fontSize: "28px", fontWeight: 700, color: colors.ember }}>4.9★</span>
-                <span style={{ fontFamily: fonts.body, fontSize: "10px", color: colors.iron, letterSpacing: "1px", textTransform: "uppercase", marginTop: "4px" }}>GOOGLE RATING</span>
-              </div>
-              <div style={{ width: "1px", backgroundColor: "rgba(255, 69, 0, 0.2)" }} />
-              <div style={{ display: "flex", flexDirection: "column", minWidth: "90px" }}>
-                <span style={{ fontFamily: fonts.accent, fontSize: "28px", fontWeight: 700, color: colors.ember }}>300+</span>
-                <span style={{ fontFamily: fonts.body, fontSize: "10px", color: colors.iron, letterSpacing: "1px", textTransform: "uppercase", marginTop: "4px" }}>HAPPY MEMBERS</span>
-              </div>
-              <div style={{ width: "1px", backgroundColor: "rgba(255, 69, 0, 0.2)" }} />
-              <div style={{ display: "flex", flexDirection: "column", minWidth: "90px" }}>
-                <span style={{ fontFamily: fonts.accent, fontSize: "28px", fontWeight: 700, color: colors.ember }}>10+</span>
-                <span style={{ fontFamily: fonts.body, fontSize: "10px", color: colors.iron, letterSpacing: "1px", textTransform: "uppercase", marginTop: "4px" }}>PROGRAMS</span>
-              </div>
+              {[
+                { val: "4.9★", label: "GOOGLE RATING", desc: "Based on 300+ reviews" },
+                { val: "300+", label: "HAPPY MEMBERS", desc: "Eluru's most trusted" },
+                { val: "8+", label: "ACTIVE PROGRAMS", desc: "Tailored conditioning" },
+              ].map((stat, sidx) => (
+                <motion.div
+                  key={sidx}
+                  whileHover={{ y: -5, borderColor: colors.ember, boxShadow: `0 8px 24px ${colors.ember}22` }}
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.02)",
+                    border: "1px solid rgba(255, 255, 255, 0.06)",
+                    padding: "16px 20px",
+                    borderRadius: "2px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                    transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span style={{ fontFamily: fonts.accent, fontSize: "26px", fontWeight: 700, color: colors.ember, lineHeight: 1 }}>{stat.val}</span>
+                  <span style={{ fontFamily: fonts.body, fontSize: "10px", fontWeight: 700, color: colors.titanium, letterSpacing: "1px", textTransform: "uppercase" }}>{stat.label}</span>
+                  <span style={{ fontFamily: fonts.body, fontSize: "10px", color: colors.iron }}>{stat.desc}</span>
+                </motion.div>
+              ))}
             </div>
 
             {/* Buttons Row */}
@@ -1704,22 +1715,110 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.5 }}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <div ref={dumbbellRef} style={{ width: "320px", height: "320px" }}>
-                <svg width="100%" height="100%" viewBox="0 0 120 120" style={{ filter: `drop-shadow(0 0 20px ${colors.ember}55)` }}>
-                  <rect x="15" y="25" width="8" height="70" fill={colors.ember} rx="1" />
-                  <rect x="25" y="32" width="6" height="56" fill={colors.emberSoft} rx="1" />
-                  <rect x="33" y="38" width="5" height="44" fill={colors.chrome} rx="1" />
-                  <rect x="38" y="55" width="44" height="10" fill={colors.titanium} rx="1" />
-                  <line x1="45" y1="55" x2="45" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="50" y1="55" x2="50" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="55" y1="55" x2="55" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="60" y1="55" x2="60" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="65" y1="55" x2="65" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="70" y1="55" x2="70" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <line x1="75" y1="55" x2="75" y2="65" stroke={colors.obsidian} strokeWidth="1.5" />
-                  <rect x="82" y="38" width="5" height="44" fill={colors.chrome} rx="1" />
-                  <rect x="89" y="32" width="6" height="56" fill={colors.emberSoft} rx="1" />
-                  <rect x="97" y="25" width="8" height="70" fill={colors.ember} rx="1" />
+              <div ref={dumbbellRef} style={{ width: "380px", height: "380px" }}>
+                <svg width="100%" height="100%" viewBox="0 0 120 120" style={{ overflow: "visible" }}>
+                  <defs>
+                    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#FFFFFF" />
+                      <stop offset="25%" stopColor="#D8D8D8" />
+                      <stop offset="50%" stopColor="#787878" />
+                      <stop offset="75%" stopColor="#C8C8C8" />
+                      <stop offset="100%" stopColor="#282828" />
+                    </linearGradient>
+                    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#FF6B35" />
+                      <stop offset="100%" stopColor="#FF4500" />
+                    </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  {/* Outer rotating dashed ring */}
+                  <motion.circle
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    fill="none"
+                    stroke={colors.ember}
+                    strokeWidth="1.5"
+                    strokeDasharray="4, 6"
+                    opacity="0.25"
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                    style={{ transformOrigin: "60px 60px" }}
+                  />
+
+                  {/* Inner opposite rotating ring with dots */}
+                  <motion.circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth="1"
+                    strokeDasharray="1, 8"
+                    strokeLinecap="round"
+                    opacity="0.4"
+                    animate={{ rotate: -360 }}
+                    transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                    style={{ transformOrigin: "60px 60px" }}
+                  />
+
+                  {/* Tech HUD crosshairs */}
+                  <line x1="60" y1="5" x2="60" y2="15" stroke={colors.ember} strokeWidth="1" opacity="0.4" />
+                  <line x1="60" y1="105" x2="60" y2="115" stroke={colors.ember} strokeWidth="1" opacity="0.4" />
+                  <line x1="5" y1="60" x2="15" y2="60" stroke={colors.ember} strokeWidth="1" opacity="0.4" />
+                  <line x1="105" y1="60" x2="115" y2="60" stroke={colors.ember} strokeWidth="1" opacity="0.4" />
+
+                  {/* Floating Dumbbell Core Group */}
+                  <motion.g
+                    animate={{
+                      y: [-4, 4, -4],
+                      rotate: [-3, 3, -3]
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 5,
+                      ease: "easeInOut"
+                    }}
+                    style={{ transformOrigin: "60px 60px" }}
+                  >
+                    {/* Central bar (Grip) */}
+                    <rect x="35" y="56" width="50" height="8" fill="url(#metalGrad)" rx="1" />
+                    {/* Grip knurling textures */}
+                    <line x1="45" y1="56" x2="45" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="50" y1="56" x2="50" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="55" y1="56" x2="55" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="60" y1="56" x2="60" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="65" y1="56" x2="65" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="70" y1="56" x2="70" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+                    <line x1="75" y1="56" x2="75" y2="64" stroke="#000" strokeWidth="0.8" opacity="0.3" />
+
+                    {/* Left Plates */}
+                    {/* Outer small plate */}
+                    <rect x="27" y="44" width="8" height="32" fill="url(#metalGrad)" rx="1.5" />
+                    {/* Middle plate with neon edge */}
+                    <rect x="19" y="36" width="8" height="48" fill="#111111" stroke="url(#neonGrad)" strokeWidth="1.5" rx="2" style={{ filter: "url(#glow)" }} />
+                    {/* Inner large plate */}
+                    <rect x="11" y="26" width="8" height="68" fill="url(#metalGrad)" rx="2.5" />
+                    {/* Collar ring */}
+                    <rect x="32" y="52" width="3" height="16" fill="url(#metalGrad)" rx="0.5" />
+
+                    {/* Right Plates */}
+                    {/* Collar ring */}
+                    <rect x="85" y="52" width="3" height="16" fill="url(#metalGrad)" rx="0.5" />
+                    {/* Inner large plate */}
+                    <rect x="101" y="26" width="8" height="68" fill="url(#metalGrad)" rx="2.5" />
+                    {/* Middle plate with neon edge */}
+                    <rect x="93" y="36" width="8" height="48" fill="#111111" stroke="url(#neonGrad)" strokeWidth="1.5" rx="2" style={{ filter: "url(#glow)" }} />
+                    {/* Outer small plate */}
+                    <rect x="85" y="44" width="8" height="32" fill="url(#metalGrad)" rx="1.5" />
+                  </motion.g>
                 </svg>
               </div>
             </motion.div>
