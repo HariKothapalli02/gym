@@ -1979,7 +1979,7 @@ export default function App() {
                 display: "block",
               }}
             >
-              10 specialized programs designed for every fitness goal
+              8 specialized programs designed for every fitness goal
             </p>
           </div>
 
@@ -1987,7 +1987,7 @@ export default function App() {
           <div style={{ position: "relative", width: "100%" }}>
             
             {/* Left Scroll Control */}
-            {isTablet && (
+            {isTablet && !isMobile && (
               <button
                 onClick={() => programsCarousel.scroll("left")}
                 style={btnStyleLeft}
@@ -1999,7 +1999,7 @@ export default function App() {
             )}
 
             {/* Right Scroll Control */}
-            {isTablet && (
+            {isTablet && !isMobile && (
               <button
                 onClick={() => programsCarousel.scroll("right")}
                 style={btnStyleRight}
@@ -2024,13 +2024,17 @@ export default function App() {
                 isTablet
                   ? {
                       display: "flex",
-                      gap: "28px",
+                      gap: "20px",
                       overflowX: "scroll",
                       scrollbarWidth: "none", // Firefox
                       msOverflowStyle: "none", // IE
                       cursor: programsCarousel.isDragging ? "grabbing" : "grab",
                       paddingBottom: "24px",
                       width: "100%",
+                      scrollSnapType: "x mandatory",
+                      paddingLeft: "24px",
+                      paddingRight: "24px",
+                      boxSizing: "border-box",
                     }
                   : {
                       display: "grid",
@@ -2061,7 +2065,8 @@ export default function App() {
                   transition={{ type: "spring", stiffness: 300, damping: 22 }}
                   style={{
                     flex: isTablet ? "0 0 auto" : "unset",
-                    width: isTablet ? (isMobile ? "290px" : "340px") : "100%",
+                    width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "340px") : "100%",
+                    scrollSnapAlign: "center",
                     backgroundColor: colors.forge,
                     border: "1px solid rgba(255, 255, 255, 0.04)",
                     borderRadius: "2px",
@@ -2259,7 +2264,7 @@ export default function App() {
 
           {/* Cards Carousel/Grid Wrapper */}
           <div style={{ position: "relative", width: "100%" }}>
-            {isTablet && (
+            {isTablet && !isMobile && (
               <>
                 <button
                   onClick={() => whyChooseCarousel.scroll("left")}
@@ -2293,13 +2298,17 @@ export default function App() {
                 isTablet
                   ? {
                       display: "flex",
-                      gap: "24px",
+                      gap: "20px",
                       overflowX: "scroll",
                       scrollbarWidth: "none", // Firefox
                       msOverflowStyle: "none", // IE
                       cursor: whyChooseCarousel.isDragging ? "grabbing" : "grab",
                       paddingBottom: "24px",
                       width: "100%",
+                      scrollSnapType: "x mandatory",
+                      paddingLeft: "24px",
+                      paddingRight: "24px",
+                      boxSizing: "border-box",
                     }
                   : {
                       display: "grid",
@@ -2334,7 +2343,8 @@ export default function App() {
                     flexDirection: "column",
                     gap: "12px",
                     flex: isTablet ? "0 0 auto" : "unset",
-                    width: isTablet ? (isMobile ? "270px" : "320px") : "100%",
+                    width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "320px") : "100%",
+                    scrollSnapAlign: "center",
                   }}
                 >
                   {/* Background Watermark number */}
@@ -2468,7 +2478,7 @@ export default function App() {
 
           {/* Trainers Cards Carousel/Grid Wrapper */}
           <div style={{ position: "relative", width: "100%" }}>
-            {isTablet && (
+            {isTablet && !isMobile && (
               <>
                 <button
                   onClick={() => trainersCarousel.scroll("left")}
@@ -2502,13 +2512,17 @@ export default function App() {
                 isTablet
                   ? {
                       display: "flex",
-                      gap: "28px",
+                      gap: "20px",
                       overflowX: "scroll",
                       scrollbarWidth: "none", // Firefox
                       msOverflowStyle: "none", // IE
                       cursor: trainersCarousel.isDragging ? "grabbing" : "grab",
                       paddingBottom: "24px",
                       width: "100%",
+                      scrollSnapType: "x mandatory",
+                      paddingLeft: "24px",
+                      paddingRight: "24px",
+                      boxSizing: "border-box",
                     }
                   : {
                       display: "grid",
@@ -2568,7 +2582,8 @@ export default function App() {
                     borderRadius: "2px",
                     padding: "40px 32px",
                     flex: isTablet ? "0 0 auto" : "unset",
-                    width: isTablet ? (isMobile ? "290px" : "340px") : "100%",
+                    width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "340px") : "100%",
+                    scrollSnapAlign: "center",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -3117,7 +3132,7 @@ export default function App() {
 
           {/* Stories Carousel/Grid Wrapper */}
           <div style={{ position: "relative", width: "100%" }}>
-            {isTablet && (
+            {isTablet && !isMobile && (
               <>
                 <button
                   onClick={() => storyCarousel.scroll("left")}
@@ -3151,13 +3166,17 @@ export default function App() {
                 isTablet
                   ? {
                       display: "flex",
-                      gap: "28px",
+                      gap: "20px",
                       overflowX: "scroll",
                       scrollbarWidth: "none", // Firefox
                       msOverflowStyle: "none", // IE
                       cursor: storyCarousel.isDragging ? "grabbing" : "grab",
                       paddingBottom: "20px",
                       width: "100%",
+                      scrollSnapType: "x mandatory",
+                      paddingLeft: "24px",
+                      paddingRight: "24px",
+                      boxSizing: "border-box",
                     }
                   : {
                       display: "grid",
@@ -3217,7 +3236,8 @@ export default function App() {
                   whileHover={{ scale: 1.03, boxShadow: `0 15px 35px rgba(255, 69, 0, 0.15)` }}
                   style={{
                     flex: isTablet ? "0 0 auto" : "unset",
-                    width: isTablet ? (isMobile ? "290px" : "360px") : "100%",
+                    width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "360px") : "100%",
+                    scrollSnapAlign: "center",
                     backgroundColor: colors.forge,
                     border: "1px solid rgba(255,255,256,0.06)",
                     borderRadius: "2px",
@@ -3367,7 +3387,7 @@ export default function App() {
 
             {/* Right Column: Carousel on Mobile/Tablet, Grid on Desktop */}
             <div className="reviews-right" style={{ position: "relative", width: "100%", overflow: "visible" }}>
-              {isTablet && (
+              {isTablet && !isMobile && (
                 <>
                   <button
                     onClick={() => reviewsCarousel.scroll("left")}
@@ -3401,13 +3421,17 @@ export default function App() {
                   isTablet
                     ? {
                         display: "flex",
-                        gap: "24px",
+                        gap: "20px",
                         overflowX: "scroll",
                         scrollbarWidth: "none", // Firefox
                         msOverflowStyle: "none", // IE
                         cursor: reviewsCarousel.isDragging ? "grabbing" : "grab",
                         paddingBottom: "20px",
                         width: "100%",
+                        scrollSnapType: "x mandatory",
+                        paddingLeft: "24px",
+                        paddingRight: "24px",
+                        boxSizing: "border-box",
                       }
                     : {
                         display: "grid",
@@ -3430,7 +3454,8 @@ export default function App() {
                       padding: "32px",
                       position: "relative",
                       flex: isTablet ? "0 0 auto" : "unset",
-                      width: isTablet ? (isMobile ? "280px" : "330px") : "100%",
+                      width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "330px") : "100%",
+                      scrollSnapAlign: "center",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "space-between",
@@ -3943,7 +3968,7 @@ export default function App() {
 
           {/* Carousel/Masonry Wrapper */}
           <div style={{ position: "relative", width: "100%" }}>
-            {isTablet && (
+            {isTablet && !isMobile && (
               <>
                 <button
                   onClick={() => galleryCarousel.scroll("left")}
@@ -3984,6 +4009,10 @@ export default function App() {
                       cursor: galleryCarousel.isDragging ? "grabbing" : "grab",
                       paddingBottom: "20px",
                       width: "100%",
+                      scrollSnapType: "x mandatory",
+                      paddingLeft: "24px",
+                      paddingRight: "24px",
+                      boxSizing: "border-box",
                     }
                   : {
                       columnCount: 3,
@@ -4005,7 +4034,8 @@ export default function App() {
                     backgroundColor: colors.forge,
                     height: isTablet ? "240px" : `${item.height}px`,
                     flex: isTablet ? "0 0 auto" : "unset",
-                    width: isTablet ? (isMobile ? "260px" : "300px") : "100%",
+                    width: isTablet ? (isMobile ? "calc(100vw - 64px)" : "300px") : "100%",
+                    scrollSnapAlign: "center",
                     marginBottom: isTablet ? "0" : "16px",
                     borderRadius: "2px",
                     position: "relative",
