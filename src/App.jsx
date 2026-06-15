@@ -825,27 +825,27 @@ export default function App() {
     // 2. About Entrance (ScrollTrigger)
     const aboutCtx = gsap.context(() => {
       gsap.from(".about-left-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: aboutRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".about-right-card", {
-        scale: 0.85,
+        scale: 0.95,
         opacity: 0,
-        duration: 0.9,
-        ease: "back.out(1.1)",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: aboutRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, aboutRef);
@@ -853,27 +853,27 @@ export default function App() {
     // 3. Programs Entrance (ScrollTrigger)
     const programsCtx = gsap.context(() => {
       gsap.from(".program-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: programsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      });
-      gsap.from(".program-card", {
-        y: 50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power3.out",
         stagger: 0.08,
         scrollTrigger: {
           trigger: programsRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
+        }
+      });
+      gsap.from(".program-card", {
+        y: 25,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.06,
+        scrollTrigger: {
+          trigger: programsRef.current,
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, programsRef);
@@ -881,27 +881,27 @@ export default function App() {
     // 4. Why Choose US Entrance (ScrollTrigger)
     const whyCtx = gsap.context(() => {
       gsap.from(".why-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: whyChooseRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".usp-card", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.0,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: whyChooseRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, whyChooseRef);
@@ -909,28 +909,28 @@ export default function App() {
     // 5. Trainers Entrance (ScrollTrigger)
     const trainersCtx = gsap.context(() => {
       gsap.from(".trainers-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: trainersRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".trainer-card", {
-        scale: 0.9,
-        y: 40,
+        scale: 0.95,
+        y: 20,
         opacity: 0,
-        duration: 1.0,
-        ease: "back.out(1.1)",
-        stagger: 0.15,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: trainersRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, trainersRef);
@@ -938,38 +938,38 @@ export default function App() {
     // 6. Membership Entrance (ScrollTrigger)
     const memberCtx = gsap.context(() => {
       gsap.from(".member-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: membershipRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".member-toggle-container", {
-        y: 20,
+        y: 10,
         opacity: 0,
-        duration: 0.8,
-        ease: "power4.out",
+        duration: 0.4,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: membershipRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".member-card", {
-        y: 50,
+        y: 25,
         opacity: 0,
-        duration: 1.0,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: membershipRef.current,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, membershipRef);
@@ -977,53 +977,43 @@ export default function App() {
     // 7. Transformation Stories Entrance (ScrollTrigger)
     const storiesCtx = gsap.context(() => {
       gsap.from(".stories-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: transformationRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      });
-      gsap.from(".story-card", {
-        y: 40,
-        opacity: 0,
-        duration: 1.0,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power3.out",
         stagger: 0.08,
         scrollTrigger: {
           trigger: transformationRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
+        }
+      });
+      gsap.from(".story-card", {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.06,
+        scrollTrigger: {
+          trigger: transformationRef.current,
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, transformationRef);
 
     // 8. Reviews Entrance (ScrollTrigger)
     const reviewsCtx = gsap.context(() => {
-      gsap.from(".reviews-left", {
-        y: 40,
+      gsap.from(".reviews-header-el", {
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: reviewsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      });
-      gsap.from(".reviews-right", {
-        y: 40,
-        opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: reviewsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, reviewsRef);
@@ -1031,37 +1021,37 @@ export default function App() {
     // 9. BMI Entrance (ScrollTrigger)
     const bmiCtx = gsap.context(() => {
       gsap.from(".bmi-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: bmiRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".bmi-left", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: bmiRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".bmi-right-empty", {
-        scale: 0.95,
+        scale: 0.97,
         opacity: 0,
-        duration: 1.0,
-        ease: "power4.out",
+        duration: 0.5,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: bmiRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, bmiRef);
@@ -1069,27 +1059,27 @@ export default function App() {
     // 10. Gallery Entrance (ScrollTrigger)
     const galleryCtx = gsap.context(() => {
       gsap.from(".gallery-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: galleryRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".gallery-card", {
-        scale: 0.9,
+        scale: 0.95,
         opacity: 0,
-        duration: 0.9,
-        ease: "power4.out",
-        stagger: 0.06,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.04,
         scrollTrigger: {
           trigger: galleryRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, galleryRef);
@@ -1097,38 +1087,38 @@ export default function App() {
     // 11. Contact Entrance (ScrollTrigger)
     const contactCtx = gsap.context(() => {
       gsap.from(".contact-header-el", {
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 1.1,
-        ease: "power4.out",
-        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: contactRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".contact-left-card", {
-        x: -50,
+        x: -20,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power3.out",
-        stagger: 0.12,
+        stagger: 0.08,
         scrollTrigger: {
           trigger: contactRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
       gsap.from(".contact-right-form", {
-        x: 50,
+        x: 20,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power3.out",
         scrollTrigger: {
           trigger: contactRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
+          start: "top 92%",
+          toggleActions: "play none none none",
         }
       });
     }, contactRef);
@@ -1136,15 +1126,15 @@ export default function App() {
     // 12. Footer Entrance (ScrollTrigger)
     const footerCtx = gsap.context(() => {
       gsap.from(".footer-col", {
-        y: 30,
+        y: 15,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power3.out",
-        stagger: 0.12,
+        stagger: 0.08,
         scrollTrigger: {
           trigger: footerRef.current,
           start: "top 95%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         }
       });
     }, footerRef);
@@ -3448,14 +3438,25 @@ export default function App() {
             style={{
               display: "grid",
               gridTemplateColumns: isTablet ? "1fr" : "1fr 2fr",
-              gap: "64px",
+              gap: isTablet ? "32px" : "64px",
               alignItems: "center",
               width: "100%",
             }}
           >
             {/* Left Column Rating */}
-            <div className="reviews-left" style={{ display: "flex", flexDirection: "column", gap: "16px", textAlign: isTablet ? "center" : "left", width: "100%" }}>
+            <div
+              className="reviews-left"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: isTablet ? "center" : "flex-start",
+                gap: "16px",
+                textAlign: isTablet ? "center" : "left",
+                width: "100%",
+              }}
+            >
               <span
+                className="reviews-header-el"
                 style={{
                   fontFamily: fonts.accent,
                   fontSize: "12px",
@@ -3467,12 +3468,39 @@ export default function App() {
               >
                 300+ HAPPY MEMBERS
               </span>
-              <h2 style={{ fontFamily: fonts.display, fontSize: "48px", color: colors.titanium, lineHeight: 1 }}>
+              <h2
+                className="reviews-header-el"
+                style={{
+                  fontFamily: fonts.display,
+                  fontSize: isMobile ? "36px" : "48px",
+                  color: colors.titanium,
+                  lineHeight: 1,
+                }}
+              >
                 GOOGLE TRUSTED
               </h2>
 
-              <div style={{ display: "flex", flexDirection: "column", alignItems: isTablet ? "center" : "flex-start", gap: "8px", marginTop: "16px" }}>
-                <span style={{ fontFamily: fonts.accent, fontSize: "96px", fontWeight: 700, color: colors.ember, lineHeight: 0.9 }}>4.9</span>
+              <div
+                className="reviews-header-el"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: isTablet ? "center" : "flex-start",
+                  gap: "8px",
+                  marginTop: "16px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: fonts.accent,
+                    fontSize: isMobile ? "72px" : "96px",
+                    fontWeight: 700,
+                    color: colors.ember,
+                    lineHeight: 0.9,
+                  }}
+                >
+                  4.9
+                </span>
                 <div style={{ display: "flex", gap: "4px", color: colors.gold }}>
                   {[...Array(5)].map((_, i) => (
                     <span key={i} style={{ fontSize: "24px" }}>★</span>
