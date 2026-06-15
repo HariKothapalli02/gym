@@ -1210,15 +1210,15 @@ export default function App() {
 
   // Gallery items and Lightbox details
   const galleryItems = [
-    { title: "Cardio Zone", pattern: "linear-gradient(45deg, rgba(255, 69, 0, 0.05) 0px, rgba(255, 69, 0, 0.05) 2px, transparent 2px, transparent 10px)", height: 200 },
-    { title: "Strength Area", pattern: "radial-gradient(rgba(255, 69, 0, 0.1) 2px, transparent 2px)", height: 280 },
-    { title: "Group Classes", pattern: "repeating-linear-gradient(-45deg, rgba(255, 69, 0, 0.04) 0px, rgba(255, 69, 0, 0.04) 4px, transparent 4px, transparent 12px)", height: 240 },
-    { title: "Personal Training", pattern: "radial-gradient(rgba(255, 69, 0, 0.1) 2px, transparent 2px)", height: 260 },
-    { title: "Nutrition Zone", pattern: "linear-gradient(45deg, rgba(255, 69, 0, 0.05) 0px, rgba(255, 69, 0, 0.05) 2px, transparent 2px, transparent 10px)", height: 210 },
-    { title: "Functional Training", pattern: "repeating-linear-gradient(-45deg, rgba(255, 69, 0, 0.04) 0px, rgba(255, 69, 0, 0.04) 4px, transparent 4px, transparent 12px)", height: 290 },
-    { title: "Kickboxing", pattern: "radial-gradient(rgba(255, 69, 0, 0.1) 2px, transparent 2px)", height: 230 },
-    { title: "CrossFit", pattern: "linear-gradient(45deg, rgba(255, 69, 0, 0.05) 0px, rgba(255, 69, 0, 0.05) 2px, transparent 2px, transparent 10px)", height: 270 },
-    { title: "Community", pattern: "repeating-linear-gradient(-45deg, rgba(255, 69, 0, 0.04) 0px, rgba(255, 69, 0, 0.04) 4px, transparent 4px, transparent 12px)", height: 220 },
+    { title: "Cardio Zone", img: "/images/cardio.png", height: 200 },
+    { title: "Strength Area", img: "/images/weights.png", height: 280 },
+    { title: "Group Classes", img: "/images/crossfit.png", height: 240 },
+    { title: "Personal Training", img: "/images/cardio.png", height: 260 },
+    { title: "Nutrition Zone", img: "/images/weights.png", height: 210 },
+    { title: "Functional Training", img: "/images/crossfit.png", height: 290 },
+    { title: "Kickboxing", img: "/images/cardio.png", height: 230 },
+    { title: "CrossFit", img: "/images/weights.png", height: 270 },
+    { title: "Community", img: "/images/crossfit.png", height: 220 },
   ];
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(null);
 
@@ -4178,7 +4178,9 @@ export default function App() {
                     position: "relative",
                     overflow: "hidden",
                     cursor: "pointer",
-                    backgroundImage: item.pattern,
+                    backgroundImage: `url(${item.img})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -4197,11 +4199,6 @@ export default function App() {
                     if (overlay) overlay.style.opacity = 0;
                   }}
                 >
-                  {/* Visual grid texture placeholder inside */}
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0.15 }}>
-                    <span style={{ fontSize: "36px" }}>🏋️</span>
-                    <span style={{ fontFamily: fonts.accent, fontSize: "14px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase" }}>TFS ZONE</span>
-                  </div>
 
                   {/* Hover overlay */}
                   <div
@@ -4308,8 +4305,9 @@ export default function App() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  textAlign: "center",
-                  backgroundImage: galleryItems[activeGalleryIndex].pattern,
+                  backgroundImage: `linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url(${galleryItems[activeGalleryIndex].img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
                 {/* Close Button */}
