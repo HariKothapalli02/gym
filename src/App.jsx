@@ -3628,7 +3628,7 @@ export default function App() {
             }}
           >
             {/* Left Column Form */}
-            <div className="bmi-left" style={{ backgroundColor: colors.forge, padding: "40px", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "2px", width: "100%" }}>
+            <div className="bmi-left" style={{ backgroundColor: colors.forge, padding: isMobile ? "24px 16px" : "40px", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "2px", width: "100%", boxSizing: "border-box" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label style={{ fontFamily: fonts.body, fontSize: "14px", color: colors.chrome }}>Your Name</label>
@@ -3650,11 +3650,13 @@ export default function App() {
                       outline: "none",
                       boxShadow: activeInput === "bmiName" ? `0 0 10px ${colors.ember}66` : "none",
                       transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                      width: "100%",
+                      boxSizing: "border-box",
                     }}
                   />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "16px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontFamily: fonts.body, fontSize: "14px", color: colors.chrome }}>Height (cm)</label>
                     <input
@@ -3675,6 +3677,8 @@ export default function App() {
                         outline: "none",
                         boxShadow: activeInput === "bmiHeight" ? `0 0 10px ${colors.ember}66` : "none",
                         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                        width: "100%",
+                        boxSizing: "border-box",
                       }}
                     />
                   </div>
@@ -3698,12 +3702,14 @@ export default function App() {
                         outline: "none",
                         boxShadow: activeInput === "bmiWeight" ? `0 0 10px ${colors.ember}66` : "none",
                         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                        width: "100%",
+                        boxSizing: "border-box",
                       }}
                     />
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "16px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontFamily: fonts.body, fontSize: "14px", color: colors.chrome }}>Age</label>
                     <input
@@ -3724,6 +3730,8 @@ export default function App() {
                         outline: "none",
                         boxShadow: activeInput === "bmiAge" ? `0 0 10px ${colors.ember}66` : "none",
                         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                        width: "100%",
+                        boxSizing: "border-box",
                       }}
                     />
                   </div>
@@ -3794,7 +3802,7 @@ export default function App() {
                     transition={{ duration: 0.4 }}
                     style={{
                       backgroundColor: colors.forge,
-                      padding: "40px",
+                      padding: isMobile ? "24px 16px" : "40px",
                       border: `1px solid ${bmiResult.color}44`,
                       borderRadius: "2px",
                       height: "100%",
@@ -3802,6 +3810,7 @@ export default function App() {
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
+                      boxSizing: "border-box",
                     }}
                   >
                     <span style={{ fontFamily: fonts.body, fontSize: "14px", color: colors.iron, textTransform: "uppercase", letterSpacing: "2px" }}>
@@ -3890,9 +3899,10 @@ export default function App() {
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      padding: "40px",
+                      padding: isMobile ? "24px 16px" : "40px",
                       textAlign: "center",
                       width: "100%",
+                      boxSizing: "border-box",
                     }}
                   >
                     <span style={{ fontSize: "48px", marginBottom: "16px" }}>📊</span>
@@ -4475,7 +4485,7 @@ export default function App() {
             </div>
 
             {/* Right Column Claim Trial Form */}
-            <div className="contact-right-form" style={{ backgroundColor: colors.forge, padding: "40px", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "2px", width: "100%" }}>
+            <div className="contact-right-form" style={{ backgroundColor: colors.forge, padding: isMobile ? "24px 16px" : "40px", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "2px", width: "100%", boxSizing: "border-box" }}>
               <AnimatePresence mode="wait">
                 {claimSuccess ? (
                   <motion.div
